@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript">
+function startTime(){
+		var today=new Date()
+		var Y=today.getFullYear()
+		var M=today.getMonth()
+		var d=today.getDate()
+		var h=today.getHours()
+		var m=today.getMinutes()
+		var s=today.getSeconds()
+		var ms=today.getMilliseconds()
+		M=M+1;
+		// add a zero in front of numbers<10
+		h=checkTime(h)
+		m=checkTime(m)
+		s=checkTime(s)
+		var txt1 = "";
+		var txt2 = "";
+
+
+		if(h>6&&h<11){
+				txt1="早上好，现在是北京时间：";
+				txt2="美好的一天从一个丰富的早餐开始";
+		}else if(11<h&&h<13){
+				txt1="此时是中午，现在是北京时间：";
+				txt2="可以吃午饭了";
+		}else if(13<h&&h<16){
+				txt1="下午好，现在是北京时间：";
+				txt2="此时适合来个下午茶放松下紧张的心情";
+		} else if(16<h&&h<19){
+				txt1="现在是北京时间：";
+				txt2="傍晚时分";
+	  }else if(19<h&&h<23) {
+			  txt1="晚上好，现在是北京时间：";
+			  txt2="一天工作劳累的你，这时适合看个电视听听歌什么的，放松下";
+		}else {
+			  txt1="夜猫你好，现在是北京时间：";
+			  txt2="听说数小绵羊可以治疗失眠哦！";
+	 }
+
+
+		document.getElementById('txt').innerHTML=txt1+Y+"年"+M+"月"+d+"日 "+h+":"+m+":"+s+":"+ms+"<br/>"+"<br/>"+txt2
+		t=setTimeout('startTime()',001)
+}
+
+function checkTime(i)
+{
+if (i<10) 
+  {i="0" + i}
+  return i
+}
+</script>
+</head>
+
+<body onload="startTime()">
+<dvi  id="txt" style="font-size:20px ; color:red"></dvi>
+</body>
+</html>
